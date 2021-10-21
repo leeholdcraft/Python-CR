@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Add new ninja</title>
+</head>
+<body>
+    <div style="margin: 100px;">
+        <h1>New ninja: </h1>
+        <div style="max-width: 500px; height: auto;">
+        <form action="/addnewninja" method="POST">
+            <div class="form-group">
+            <label for="exampleFormControlSelect1">Dojo: </label>
+            <select name="dojos_id" class="form-control" id="exampleFormControlSelect1">
+                {% for dojo in dojos %}
+                <option value="{{dojo['id']}}">{{ dojo['name']}}</option>
+                {% endfor %}
+            </select>
+            </div>
+            <div class="form-group">
+                <label for="first_name">First Name: </label>
+                <input name="first_name" type="text" class="form-control" id="first_name" placeholder="First name">
+            </div>
+            <div class="form-group">
+                <label for="last_name" >Last Name: </label>
+                <input name="last_name" type="text" class="form-control" id="last_name" placeholder="Last name">
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input name="age" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Age" min="0" max="100">
+            </div>
+            <button type="submit" class="btn btn primary">Submit</button>
+        </form>
+            <a style="color: white;" href="/">Return to home</a>
+        </div>
+    </div>
+</body>
+</html>
